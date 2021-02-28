@@ -117,6 +117,9 @@ def Equal():
   global count
   global operator
   global sec_number
+  global IsThereCarka
+
+  IsThereCarka = False
 
   sec_number = entry.get()
 
@@ -128,6 +131,8 @@ def Equal():
 # Operator +
   if operator == "+":
     answer = "{:.2f}".format(f_num + float(second_number_was) * count)
+    if answer.endswith("00"):
+      answer = "{:.0f}".format(f_num + float(second_number_was) * count)
     entry.insert(0, answer)
     count += 1
     print("scitam")
