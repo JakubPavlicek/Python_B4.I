@@ -59,6 +59,8 @@ def Percent():
 
 def Divide():
   global IsThereCarka
+  global count
+  count = 1
   IsThereCarka = False
   first_num = entry.get()
   global f_num
@@ -69,6 +71,8 @@ def Divide():
 
 def Multiply():
   global IsThereCarka
+  global count
+  count = 1
   IsThereCarka = False
   first_num = entry.get()
   global f_num
@@ -79,6 +83,8 @@ def Multiply():
 
 def Subtract():
   global IsThereCarka
+  global count
+  count = 1
   IsThereCarka = False
   first_num = entry.get()
   global f_num
@@ -89,6 +95,8 @@ def Subtract():
 
 def Add():
   global IsThereCarka
+  global count
+  count = 1
   IsThereCarka = False
   first_num = entry.get()
   global f_num
