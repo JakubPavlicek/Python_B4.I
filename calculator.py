@@ -58,6 +58,8 @@ def Percent():
   IsThereCarka = True
 
 def Divide():
+  global IsThereCarka
+  IsThereCarka = False
   first_num = entry.get()
   global f_num
   global operator
@@ -66,6 +68,8 @@ def Divide():
   entry.delete(0, END)
 
 def Multiply():
+  global IsThereCarka
+  IsThereCarka = False
   first_num = entry.get()
   global f_num
   global operator
@@ -74,6 +78,8 @@ def Multiply():
   entry.delete(0, END)
 
 def Subtract():
+  global IsThereCarka
+  IsThereCarka = False
   first_num = entry.get()
   global f_num
   global operator
@@ -82,6 +88,8 @@ def Subtract():
   entry.delete(0, END)
 
 def Add():
+  global IsThereCarka
+  IsThereCarka = False
   first_num = entry.get()
   global f_num
   global operator
@@ -140,6 +148,8 @@ def Equal():
 # Operator -
   if operator == "-":
     answer = "{:.2f}".format(f_num - float(second_number_was) * count)
+    if answer.endswith("00"):
+      answer = "{:.0f}".format(f_num - float(second_number_was) * count)
     entry.insert(0, answer)
     count += 1
     print("odcitam")
@@ -147,6 +157,8 @@ def Equal():
 # Operator *
   if operator == "*":
     answer = "{:.2f}".format(f_num * pow(float(second_number_was), count))
+    if answer.endswith("00"):
+      answer = "{:.0f}".format(f_num * pow(float(second_number_was), count))
     entry.insert(0, answer)
     count += 1
     print("nasobim")
@@ -154,6 +166,8 @@ def Equal():
 # Operator /
   if operator == "/":
     answer = "{:.2f}".format(f_num / pow(float(second_number_was), count))
+    if answer.endswith("00"):
+      answer = "{:.0f}".format(f_num / pow(float(second_number_was), count))
     entry.insert(0, answer)
     count += 1
     print("delim")
