@@ -139,6 +139,7 @@ def Equal():
 # Operator +
   if operator == "+":
     answer = "{:.2f}".format(f_num + float(second_number_was) * count)
+    IsThereCarka = True
     if answer.endswith("00"):
       answer = "{:.0f}".format(f_num + float(second_number_was) * count)
     entry.insert(0, answer)
@@ -148,6 +149,7 @@ def Equal():
 # Operator -
   if operator == "-":
     answer = "{:.2f}".format(f_num - float(second_number_was) * count)
+    IsThereCarka = True
     if answer.endswith("00"):
       answer = "{:.0f}".format(f_num - float(second_number_was) * count)
     entry.insert(0, answer)
