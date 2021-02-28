@@ -4,7 +4,7 @@ import math
 root = Tk()
 root.title("Calculator")
 
-entry = Entry(root, width=24)
+entry = Entry(root, width=24, justify=RIGHT)
 entry.grid(row=0, column=0, columnspan=4)
 
 # global variables for future use
