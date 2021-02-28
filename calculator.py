@@ -13,6 +13,7 @@ second_number_was = 0
 sec_number = 0
 f_num = 0
 isNumWithMinus = False
+IsThereCarka = False
 # -----
 
 def onClick(number):
@@ -49,10 +50,12 @@ def Negate():
     print("neguju minus")
 
 def Percent():
+  global IsThereCarka
   current_num = entry.get()
   entry.delete(0, END)
   percentNum = "{:.6f}".format(float(current_num) / 100)
   entry.insert(0, percentNum)
+  IsThereCarka = True
 
 def Divide():
   first_num = entry.get()
@@ -87,7 +90,14 @@ def Add():
   entry.delete(0, END)
 
 def Carka():
-  return
+  global IsThereCarka
+  current_num = entry.get()
+  IsNotDecimal = not IsThereCarka
+  if IsNotDecimal:
+    numWithCarka = current_num + "."
+    IsThereCarka = True
+    entry.delete(0, END)
+    entry.insert(0, numWithCarka)
 
 def Clear():
   global f_num
@@ -117,25 +127,29 @@ def Equal():
 
 # Operator +
   if operator == "+":
-    entry.insert(0, f_num + int(second_number_was) * count)
+    answer = "{:.2f}".format(f_num + float(second_number_was) * count)
+    entry.insert(0, answer)
     count += 1
     print("scitam")
 
 # Operator -
   if operator == "-":
-    entry.insert(0, f_num - int(second_number_was) * count)
+    answer = "{:.2f}".format(f_num - float(second_number_was) * count)
+    entry.insert(0, answer)
     count += 1
     print("odcitam")
 
 # Operator *
   if operator == "*":
-    entry.insert(0, f_num * pow(int(second_number_was), count))
+    answer = "{:.2f}".format(f_num * pow(float(second_number_was), count))
+    entry.insert(0, answer)
     count += 1
     print("nasobim")
 
 # Operator /
   if operator == "/":
-    entry.insert(0, f_num / pow(int(second_number_was), count))
+    answer = "{:.2f}".format(f_num / pow(float(second_number_was), count))
+    entry.insert(0, answer)
     count += 1
     print("delim")
 
@@ -163,7 +177,7 @@ buttonDivide = Button(root, text="÷", width=2, height=2, command=Divide)
 buttonMultiply = Button(root, text="×", width=2, height=2, command=Multiply)
 buttonSubtract = Button(root, text="-", width=2, height=2, command=Subtract)
 buttonAdd = Button(root, text="+", width=2, height=2, command=Add)
-buttonCarka = Button(root, text=",", width=2, height=2, command=lambda: onClick)
+buttonCarka = Button(root, text=",", width=2, height=2, command=Carka)
 buttonEqual = Button(root, text="=", width=2, height=2, command=Equal)
 
 button0.grid(row=5, column=0, columnspan=2)
